@@ -1,10 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Counter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/RestartLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Font/Montserrat-Regular.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 12
 use_filter = true
 font_data = ExtResource( 3 )
@@ -28,13 +32,33 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="RestartLabel" parent="." instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 361.0
-margin_top = 400.0
-margin_right = 918.0
-margin_bottom = 479.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -275.0
+margin_top = 40.0
+margin_right = 275.0
+margin_bottom = 120.0
 size_flags_horizontal = 4
+
+[node name="LevelDoneLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -275.0
+margin_top = -40.0
+margin_right = 275.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+text = "You won!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TutorialPopup1" type="PopupPanel" parent="."]
 visible = true
@@ -56,11 +80,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.0
-margin_top = -46.0
-margin_right = 96.0
-margin_bottom = 46.0
-custom_fonts/font = SubResource( 1 )
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 2 )
 text = "Press the left mouse button to hold the rock and drag it through the level. 
 If the rock collides with anything, you lose!"
 align = 1

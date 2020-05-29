@@ -17,6 +17,7 @@ func _initial_setup():
 	emit_signal("move_cam", "offset_right")
 	TutorialPopup1.popup()
 	$CanvasLayer/HUD/RestartLabel.visible = false
+	$CanvasLayer/HUD/LevelDoneLabel.visible = false
 
 
 func _process(delta):
@@ -43,4 +44,11 @@ func _on_Player_death():
 		running = false
 		$Player.queue_free()
 		$CanvasLayer/HUD/RestartLabel.visible = true
+
+
+func _on_Portal_level_done():
+	if running:
+		running = false
+		$Player.queue_free()
+		$CanvasLayer/HUD/LevelDoneLabel.visible = true
 

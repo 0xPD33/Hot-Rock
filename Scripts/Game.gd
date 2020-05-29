@@ -8,10 +8,14 @@ signal move_cam
 
 
 func _ready():
+	_initial_setup()
+
+
+func _initial_setup():
 	running = false
-	TutorialPopup1.popup()
 	connect("move_cam", $Camera2D, "_on_move_cam")
 	emit_signal("move_cam", "offset_right")
+	TutorialPopup1.popup()
 	$CanvasLayer/HUD/RestartLabel.visible = false
 
 
@@ -35,7 +39,8 @@ func _on_Counter_start_game():
 
 
 func _on_Player_death():
-	running = false
-	$Player.queue_free()
-	$CanvasLayer/HUD/RestartLabel.visible = true
+	if running:
+		running = false
+		$Player.queue_free()
+		$CanvasLayer/HUD/RestartLabel.visible = true
 

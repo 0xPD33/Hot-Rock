@@ -43,7 +43,7 @@ func _on_hold():
 	if held and Input.is_action_pressed("hold_click"):
 		var pos = get_global_mouse_position()
 		set_position(pos)
-		rotation_degrees += 5
+		rotation_degrees += 3
 	else:
 		held = false
 

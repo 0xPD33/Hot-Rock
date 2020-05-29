@@ -1,6 +1,6 @@
 extends Camera2D
 
-var cam_speed = 600
+var cam_speed = 500
 var moving = false
 
 onready var CamMovement = $CameraMovement

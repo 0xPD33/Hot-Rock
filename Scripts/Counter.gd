@@ -21,6 +21,6 @@ func _on_Timer_timeout():
 	counter.text = str(display_value)
 	
 	if display_value == 0:
-		queue_free()
+		visible = false
 		emit_signal("start_game")
 

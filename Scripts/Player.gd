@@ -21,16 +21,16 @@ func _calculate_position(delta):
 	
 		var collision = move_and_collide(velocity * delta)
 		
-		#if collision:
-		#	player_death()
+		if collision:
+			player_death()
 	
 	elif held == true:
 		velocity.y = 0
 		
 		var collision = move_and_collide(velocity * delta)
 		
-		#if collision:
-		#	player_death()
+		if collision:
+			player_death()
 	
 	if position.y > 800:
 		player_death()

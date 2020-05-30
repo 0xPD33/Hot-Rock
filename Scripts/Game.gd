@@ -1,23 +1,37 @@
 extends Node2D
 
 var running = false
+var gems_collected : int
+var max_gems : int
 
-onready var TutorialPopup1 = $CanvasLayer/HUD/TutorialPopup1
+onready var TutPopup1 = $CanvasLayer/HUD/Tooltips/TutPopup1
+onready var GemCount = $CanvasLayer/HUD/HBoxContainer/GemCountLabel
 
 signal move_cam
 
 
 func _ready():
 	_initial_setup()
+	add_to_group("Game")
 
 
 func _initial_setup():
 	running = false
 	connect("move_cam", $Camera2D, "_on_move_cam")
 	emit_signal("move_cam", "offset_right")
-	TutorialPopup1.popup()
+	TutPopup1.popup()
 	$CanvasLayer/HUD/RestartLabel.visible = false
 	$CanvasLayer/HUD/LevelDoneLabel.visible = false
+	_setup_gems()
+
+
+func _setup_gems():
+	max_gems = get_tree().get_nodes_in_group("Gems").size()
+	_update_gems()
+
+
+func _update_gems():
+	GemCount.text = ": " + str(gems_collected) + "/" + str(max_gems)
 
 
 func _process(delta):
@@ -27,6 +41,7 @@ func _process(delta):
 		emit_signal("move_cam", "stop_moving")
 	
 	_get_input()
+	_update_gems()
 
 
 func _get_input():
@@ -35,8 +50,11 @@ func _get_input():
 
 
 func _on_Counter_start_game():
-	running = true
-	TutorialPopup1.queue_free()
+	if running == false:
+		running = true
+		TutPopup1.queue_free()
+	else:
+		pass
 
 
 func _on_Player_death():
@@ -51,4 +69,8 @@ func _on_Portal_level_done():
 		running = false
 		$Player.queue_free()
 		$CanvasLayer/HUD/LevelDoneLabel.visible = true
+
+
+func _on_gem_collected():
+	gems_collected += 1
 

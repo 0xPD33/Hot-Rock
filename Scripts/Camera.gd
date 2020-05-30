@@ -9,7 +9,7 @@ onready var CamMovement = $CameraMovement
 func _process(delta):
 	if moving:
 		position.x += cam_speed * delta
-	else:
+	elif moving == false:
 		position.x = position.x
 
 

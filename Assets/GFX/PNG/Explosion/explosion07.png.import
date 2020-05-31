@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/platformChar_climb2.png-6ed22306b349e38c9998d7b88e0e8c25.stex"
+path="res://.import/explosion07.png-9cdeffa9df1bbc15f13780479c432029.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/PNG/Characters/platformChar_climb2.png"
-dest_files=[ "res://.import/platformChar_climb2.png-6ed22306b349e38c9998d7b88e0e8c25.stex" ]
+source_file="res://Assets/GFX/PNG/Explosion/explosion07.png"
+dest_files=[ "res://.import/explosion07.png-9cdeffa9df1bbc15f13780479c432029.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/platformChar_duck.png-c7cb3834c21ca5681c00165464aef7ff.stex"
+path="res://.import/explosion06.png-876884e00cb1f8f28dfc26b62ec714af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/PNG/Characters/platformChar_duck.png"
-dest_files=[ "res://.import/platformChar_duck.png-c7cb3834c21ca5681c00165464aef7ff.stex" ]
+source_file="res://Assets/GFX/PNG/Explosion/explosion06.png"
+dest_files=[ "res://.import/explosion06.png-876884e00cb1f8f28dfc26b62ec714af.stex" ]
 
 [params]
 

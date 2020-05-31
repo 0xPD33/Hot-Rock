@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/platformChar_happy.png-d92e8adb6a334728c7733e331b0523cb.stex"
+path="res://.import/Missile.png-2a65173837e1e0b92b625f9fd2ca173a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/PNG/Characters/platformChar_happy.png"
-dest_files=[ "res://.import/platformChar_happy.png-d92e8adb6a334728c7733e331b0523cb.stex" ]
+source_file="res://Assets/GFX/PNG/Turrets/Missile.png"
+dest_files=[ "res://.import/Missile.png-2a65173837e1e0b92b625f9fd2ca173a.stex" ]
 
 [params]
 

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/GFX/PNG/Turrets/Missile_Launcher.png" type="Texture" id=1]
+
+[node name="Turret" type="Node2D"]
+
+[node name="TurretArm" type="Sprite" parent="."]
+position = Vector2( 0, 130.696 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 55, 45, 25, 80 )
+region_filter_clip = true
+
+[node name="TurretBody" type="Sprite" parent="."]
+position = Vector2( 0, 97.8433 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -75 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 136, 218 )
+
+[node name="Area2D" type="StaticBody2D" parent="TurretBody"]
+position = Vector2( 95.7756, 20.0086 )
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TurretBody/Area2D"]
+visible = false
+position = Vector2( -95.7756, -122.524 )
+polygon = PoolVector2Array( -67.7892, 99.4822, -67.7683, 49.9198, -61.1053, 42.795, -55.1175, 37.3111, -50.968, 35.7943, -43.1173, 35.8312, -42.8622, -76.4248, -39.2344, -81.9434, -21.3143, -81.8186, -17.3137, -77.5259, -17.228, -72.052, 17.3148, -71.9807, 17.3898, -77.3824, 21.2805, -81.999, 38.966, -81.9705, 43.0145, -77.1588, 42.8901, 35.8614, 53.1983, 35.7884, 60.2249, 41.4213, 67.8613, 48.9705, 67.7896, 97.8844, 65.2521, 101.405, 62.3372, 104.658, 54.0063, 112.65, 48.0121, 112.819, 47.8089, 117.493, 45.9512, 120.706, 43.8175, 123.47, 34.0427, 135.77, -34.4236, 135.721, -44.5541, 122.773, -47.7392, 117.786, -47.9644, 112.896, -51.0851, 112.864, -53.6911, 112.381, -61.3481, 106.011 )

@@ -42,10 +42,11 @@ restart={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Terrain"
 2d_physics/layer_3="Items"
+2d_physics/layer_4="Enemies"
 
 [rendering]
 
 quality/2d/use_pixel_snap=true
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 0.313726, 0.301961, 0.301961, 1 )
 quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"

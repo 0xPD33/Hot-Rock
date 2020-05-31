@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/platformChar_idle.png-64788368f07470671d4525cf6de77996.stex"
+path="res://.import/explosion02.png-26e0a37990e8b4148b2bbbb44a22d9d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/PNG/Characters/platformChar_idle.png"
-dest_files=[ "res://.import/platformChar_idle.png-64788368f07470671d4525cf6de77996.stex" ]
+source_file="res://Assets/GFX/PNG/Explosion/explosion02.png"
+dest_files=[ "res://.import/explosion02.png-26e0a37990e8b4148b2bbbb44a22d9d8.stex" ]
 
 [params]
 

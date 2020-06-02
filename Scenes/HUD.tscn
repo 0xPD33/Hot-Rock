@@ -6,8 +6,9 @@
 [ext_resource path="res://Scenes/Tooltips.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/GFX/PNG/Items/platformPack_item002.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=1]
-size = 48
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_filter = true
 font_data = ExtResource( 3 )
 
 [node name="HUD" type="Control"]
@@ -31,50 +32,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -275.0
+margin_left = -348.5
 margin_top = 40.0
-margin_right = 275.0
+margin_right = 348.5
 margin_bottom = 120.0
 size_flags_horizontal = 4
-
-[node name="LevelDoneLabel" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -275.0
-margin_top = -40.0
-margin_right = 275.0
-margin_bottom = 40.0
-custom_fonts/font = SubResource( 1 )
-text = "You won!"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Press R to restart, Esc to quit"
 
 [node name="Tooltips" parent="." instance=ExtResource( 4 )]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="GemContainer" type="HBoxContainer" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GemImage" type="TextureRect" parent="HBoxContainer"]
+[node name="GemImage" type="TextureRect" parent="GemContainer"]
 margin_right = 64.0
 margin_bottom = 64.0
 texture = ExtResource( 5 )
 
-[node name="GemCountLabel" type="Label" parent="HBoxContainer"]
+[node name="GemCountLabel" type="Label" parent="GemContainer"]
 margin_left = 68.0
-margin_top = 25.0
-margin_right = 97.0
-margin_bottom = 39.0
-text = ": 0/8"
+margin_top = 16.0
+margin_right = 114.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 2 )
+text = "0/8"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

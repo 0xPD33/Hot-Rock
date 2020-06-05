@@ -16,6 +16,7 @@ func _process(delta):
 
 
 func _on_move_cam(anim_name):
+	# checks for the right string being passed and plays animations/starts moving the camera
 	if anim_name == "offset_right":
 		CamMovement.play("offset_right")
 	elif anim_name == "move_right":

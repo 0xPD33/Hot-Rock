@@ -1,0 +1,194 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Font/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Font/Flames-w3P6.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.443137, 0.0901961, 0.0313726, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.854902, 0.180392, 0.00784314, 1 )
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 16
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 2
+outline_color = Color( 1, 0.211765, 0, 0.862745 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+outline_size = 1
+outline_color = Color( 0.909804, 0.290196, 0.00392157, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = -250.0
+margin_right = 500.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 1000, 500 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuBackground" type="ColorRect" parent="MainContainer"]
+margin_right = 1000.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 1000, 500 )
+color = Color( 0.423529, 0.0901961, 0, 0.705882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="MainContainer/MenuBackground"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -500.0
+margin_right = 500.0
+margin_bottom = 80.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.411765, 0, 0, 1 )
+text = "Hot Rock"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/MenuBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -150.0
+margin_right = 300.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 600, 300 )
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="TextureButton" parent="MainContainer/MenuBackground/VBoxContainer"]
+margin_left = 242.0
+margin_top = 89.0
+margin_right = 357.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 115, 55 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MainContainer/MenuBackground/VBoxContainer/PlayButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -57.5
+margin_top = -27.5
+margin_right = 57.5
+margin_bottom = 27.5
+rect_min_size = Vector2( 115, 55 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
+text = "PLAY"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="TextureButton" parent="MainContainer/MenuBackground/VBoxContainer"]
+margin_left = 242.0
+margin_top = 154.0
+margin_right = 357.0
+margin_bottom = 209.0
+rect_min_size = Vector2( 115, 55 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MainContainer/MenuBackground/VBoxContainer/QuitButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -57.5
+margin_top = -27.5
+margin_right = 57.5
+margin_bottom = 27.5
+rect_min_size = Vector2( 115, 55 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
+text = "QUIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fade"
+anims/fade = SubResource( 4 )
+[connection signal="pressed" from="MainContainer/MenuBackground/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MainContainer/MenuBackground/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

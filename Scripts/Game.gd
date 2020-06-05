@@ -44,11 +44,10 @@ func _update_gems():
 func _process(delta):
 	_control_camera()
 	_get_input()
-	_update_gems()
 
 
 func _control_camera():
-	# tells the camera when to start moving right and when to stop
+	# tells the camera when to start moving right and when to stop (emits signals to Camera.gd)
 	if running:
 		emit_signal("move_cam", "move_right")
 	else:
@@ -58,8 +57,9 @@ func _control_camera():
 func _get_input():
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+	
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
+		get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 
 func _on_Counter_start_game():
@@ -93,4 +93,5 @@ func _on_Portal_level_done():
 func _on_gem_collected():
 	# increment gems_collected by 1 each time the player collects a gem (duh)
 	gems_collected += 1
+	_update_gems()
 

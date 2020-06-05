@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Tooltips.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/GFX/PNG/Items/platformPack_item002.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 24
 use_filter = true
 font_data = ExtResource( 3 )
@@ -32,12 +32,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -348.5
+margin_left = -400.0
 margin_top = 40.0
-margin_right = 348.5
-margin_bottom = 120.0
+margin_right = 400.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 800, 60 )
 size_flags_horizontal = 4
-text = "Press R to restart, Esc to quit"
+text = "Press R to restart,
+Esc to quit to Menu"
+autowrap = true
 
 [node name="Tooltips" parent="." instance=ExtResource( 4 )]
 
@@ -58,7 +61,7 @@ margin_left = 68.0
 margin_top = 16.0
 margin_right = 114.0
 margin_bottom = 47.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "0/8"
 valign = 1
 __meta__ = {

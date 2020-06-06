@@ -14,6 +14,10 @@ onready var Level = get_parent()
 signal death
 
 
+func _ready():
+	$VisibilityNotifier2D.visible = true
+
+
 func _physics_process(delta: float):
 	_calculate_position(delta)
 
@@ -26,16 +30,16 @@ func _calculate_position(delta):
 	
 		var collision = move_and_collide(velocity * delta)
 		
-		if collision and Level.running == true:
-			player_death()
+		#if collision and Level.running == true:
+		#	player_death()
 	
 	elif held == true:
 		velocity.y = 0
 		
 		var collision = move_and_collide(velocity * delta)
 		
-		if collision and Level.running == true:
-			player_death()
+		#if collision and Level.running == true:
+		#	player_death()
 	
 	if position.y > 800:
 		player_death()
@@ -71,7 +75,10 @@ func explode(hit_loc, colliding_obj):
 func player_death():
 	var dead : bool = true
 	
-	explode(get_position(), self)
+	if $VisibilityNotifier2D.is_on_screen():
+		explode(get_position(), self)
+	else:
+		pass
 	
 	# emit signal death to Game.gd
 	if dead == true:
@@ -84,4 +91,8 @@ func _on_Player_mouse_entered():
 
 func _on_Player_mouse_exited():
 	on_target = false
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	player_death()
 

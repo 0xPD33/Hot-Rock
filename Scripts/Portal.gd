@@ -7,9 +7,15 @@ signal level_done
 func _on_Area2D_body_entered(body):
 	if body is KinematicBody2D:
 		emit_signal("level_done")
+		zoom_in()
 
 
 # play the color change animation once the portal enters the screen
 func _on_VisibilityNotifier2D_screen_entered():
 	$AnimationPlayer.play("portal_anim")
+
+
+func zoom_in():
+	$PortalCam.current = true
+	$ZoomAnimation.play("portal_zoom")
 

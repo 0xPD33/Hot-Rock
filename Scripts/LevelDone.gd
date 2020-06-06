@@ -15,14 +15,14 @@ func _ready():
 
 # calculates the gems and sets star_var accordingly. star_var represents the number of stars
 # it works but this could probably be done much more efficient
-func calculate_gems(gems_collected, max_gems):
+func calculate_gems(collected, max_g):
 	var star_var : int
 	
-	if gems_collected >= int((round(max_gems * 0.33))) and gems_collected < int((round(max_gems * 0.66))):
+	if collected >= int((round(max_g * 0.33))) and collected < int((round(max_g * 0.66))):
 		star_var = 1
-	elif gems_collected >= int((round(max_gems * 0.66))) and gems_collected < max_gems:
+	elif collected >= int((round(max_g * 0.66))) and collected < max_g:
 		star_var = 2 
-	elif gems_collected == max_gems:
+	elif collected == max_g:
 		star_var = 3
 	else:
 		star_var = 0
@@ -48,4 +48,8 @@ func calculate_stars(star_var):
 # restarts the level
 func _on_RestartButton_pressed():
 	get_tree().change_scene("res://Scenes/Levels/Level1.tscn")
+
+
+func _on_MenuButton_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 

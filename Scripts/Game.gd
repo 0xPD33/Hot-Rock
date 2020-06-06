@@ -1,8 +1,12 @@
+# TODO:
+# -> make all this code level-independent
 extends Node2D
 
 var running = false
 var gems_collected : int
 var max_gems : int
+
+onready var Portal = get_node("Portal")
 
 onready var TutPopup1 = $CanvasLayer/HUD/Tooltips/TutPopup1
 onready var GemCount = $CanvasLayer/HUD/GemContainer/GemCountLabel
@@ -85,13 +89,19 @@ func _on_Portal_level_done():
 	if running:
 		running = false
 		
-		# free the player and change the scene to the LevelDone scene
 		$Player.queue_free()
+		
+		# gets the AnimationPlayer node named ZoomAnimation from the Portal and
+		# waits for any running animation to finish
+		var portal_zoom = Portal.get_node("ZoomAnimation")
+		yield(portal_zoom, "animation_finished")
+		
+		# change the scene to the LevelDone scene
 		SceneSwitcher.change_scene("res://Scenes/LevelDone.tscn", {"gems_collected": gems_collected, "max_gems": max_gems})
 
 
 func _on_gem_collected():
-	# increment gems_collected by 1 each time the player collects a gem (duh)
+	# increments gems_collected by 1 each time the player collects a gem (duh)
 	gems_collected += 1
 	_update_gems()
 

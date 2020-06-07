@@ -1,3 +1,5 @@
+# Player script:
+# handles everything involving the player
 extends KinematicBody2D
 
 var on_target : bool = false
@@ -30,16 +32,16 @@ func _calculate_position(delta):
 	
 		var collision = move_and_collide(velocity * delta)
 		
-		#if collision and Level.running == true:
-		#	player_death()
+		if collision and Level.running == true:
+			player_death()
 	
 	elif held == true:
 		velocity.y = 0
 		
 		var collision = move_and_collide(velocity * delta)
 		
-		#if collision and Level.running == true:
-		#	player_death()
+		if collision and Level.running == true:
+			player_death()
 	
 	if position.y > 800:
 		player_death()
@@ -70,11 +72,14 @@ func explode(hit_loc, colliding_obj):
 	# set position to the hitlocation and play the animation
 	expl.set_position(hit_loc)
 	expl.play()
+	
+	expl.get_node("AudioStreamPlayer2D").play()
 
 
 func player_death():
 	var dead : bool = true
 	
+	# only play explosion if the player is on the screen
 	if $VisibilityNotifier2D.is_on_screen():
 		explode(get_position(), self)
 	else:

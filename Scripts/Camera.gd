@@ -1,3 +1,5 @@
+# camera script:
+# responsible for moving the camera at certain points in the game
 extends Camera2D
 
 var cam_speed = 500

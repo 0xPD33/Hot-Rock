@@ -1,10 +1,40 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Assets/Font/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Font/LiberationSans-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Font/Flames-w3P6.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://Animations/fade_in.anim" type="Animation" id=4]
 [ext_resource path="res://Animations/fade_out.anim" type="Animation" id=5]
+[ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/red_button01.png" type="Texture" id=6]
+[ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/red_button13.png" type="Texture" id=7]
+[ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/White/1x/forward.png" type="Texture" id=8]
+[ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/White/1x/power.png" type="Texture" id=9]
+[ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/red_panel.png" type="Texture" id=10]
+[ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/White/1x/gear.png" type="Texture" id=11]
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 100, 100 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 34
+outline_size = 1
+outline_color = Color( 0.909804, 0.290196, 0.00392157, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+outline_size = 1
+outline_color = Color( 0.909804, 0.290196, 0.00392157, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.443137, 0.0901961, 0.0313726, 1 )
@@ -31,14 +61,6 @@ outline_color = Color( 1, 0.211765, 0, 0.862745 )
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 42
-outline_size = 1
-outline_color = Color( 0.909804, 0.290196, 0.00392157, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
-
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,20 +72,16 @@ __meta__ = {
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.505882, 0.192157, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MainContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -500.0
-margin_top = -250.0
-margin_right = 500.0
-margin_bottom = 250.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.698364
+margin_right = -0.698364
 rect_min_size = Vector2( 1000, 500 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -72,21 +90,171 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuBackground" type="ColorRect" parent="MainContainer"]
-margin_right = 1000.0
-margin_bottom = 500.0
-rect_min_size = Vector2( 1000, 500 )
-color = Color( 0.423529, 0.0901961, 0, 0.705882 )
+[node name="PanelContainer" type="PanelContainer" parent="MainContainer"]
+self_modulate = Color( 1, 1, 1, 0.705882 )
+margin_left = 264.0
+margin_top = 184.0
+margin_right = 1014.0
+margin_bottom = 534.0
+rect_min_size = Vector2( 750, 350 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/PanelContainer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 347.0
+rect_min_size = Vector2( 600, 300 )
+custom_constants/separation = 10
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="MainContainer/MenuBackground"]
+[node name="PlayButton" type="TextureButton" parent="MainContainer/PanelContainer/VBoxContainer"]
+margin_left = 277.0
+margin_top = 86.0
+margin_right = 467.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 190, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/PanelContainer/VBoxContainer/PlayButton"]
+modulate = Color( 0.486275, 0.113725, 0.00392157, 1 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -25.0
+margin_right = 65.0
+margin_bottom = 20.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayLabel" type="Label" parent="MainContainer/PanelContainer/VBoxContainer/PlayButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = -6.0
+margin_right = 15.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 190, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
+text = "PLAY"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsButton" type="TextureButton" parent="MainContainer/PanelContainer/VBoxContainer"]
+margin_left = 277.0
+margin_top = 146.0
+margin_right = 467.0
+margin_bottom = 196.0
+rect_min_size = Vector2( 190, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="MainContainer/PanelContainer/VBoxContainer/SettingsButton"]
+modulate = Color( 0.486275, 0.113725, 0.00392157, 1 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 5.0
+margin_top = -27.8679
+margin_right = 55.0
+margin_bottom = 22.1321
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsLabel" type="Label" parent="MainContainer/PanelContainer/VBoxContainer/SettingsButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -1.0
+margin_right = 20.0
+margin_bottom = -1.0
+rect_min_size = Vector2( 190, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
+text = "SETTINGS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="TextureButton" parent="MainContainer/PanelContainer/VBoxContainer"]
+margin_left = 277.0
+margin_top = 206.0
+margin_right = 467.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 190, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/PanelContainer/VBoxContainer/QuitButton"]
+modulate = Color( 0.486275, 0.113725, 0.00392157, 1 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 5.0
+margin_top = -29.2195
+margin_right = 55.0
+margin_bottom = 20.7805
+texture = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitLabel" type="Label" parent="MainContainer/PanelContainer/VBoxContainer/QuitButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = -6.0
+rect_min_size = Vector2( 190, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
+text = "QUIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -500.0
-margin_right = 500.0
-margin_bottom = 80.0
+margin_left = -197.5
+margin_top = 125.0
+margin_right = 197.5
+margin_bottom = 196.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_styles/normal = SubResource( 1 )
@@ -100,82 +268,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/MenuBackground"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -150.0
-margin_right = 300.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 600, 300 )
-custom_constants/separation = 10
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PlayButton" type="TextureButton" parent="MainContainer/MenuBackground/VBoxContainer"]
-margin_left = 242.0
-margin_top = 90.0
-margin_right = 357.0
-margin_bottom = 145.0
-rect_min_size = Vector2( 115, 55 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Label" type="Label" parent="MainContainer/MenuBackground/VBoxContainer/PlayButton"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -57.5
-margin_top = -27.5
-margin_right = 57.5
-margin_bottom = 27.5
-rect_min_size = Vector2( 115, 55 )
-size_flags_horizontal = 4
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
-text = "PLAY"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="QuitButton" type="TextureButton" parent="MainContainer/MenuBackground/VBoxContainer"]
-margin_left = 242.0
-margin_top = 155.0
-margin_right = 357.0
-margin_bottom = 210.0
-rect_min_size = Vector2( 115, 55 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Label" type="Label" parent="MainContainer/MenuBackground/VBoxContainer/QuitButton"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -57.5
-margin_top = -27.5
-margin_right = 57.5
-margin_bottom = 27.5
-rect_min_size = Vector2( 115, 55 )
-size_flags_horizontal = 4
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
-text = "QUIT"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade_in = ExtResource( 4 )
 anims/fade_out = ExtResource( 5 )
-[connection signal="pressed" from="MainContainer/MenuBackground/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="MainContainer/MenuBackground/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="MainContainer/PanelContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MainContainer/PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MainContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

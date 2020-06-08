@@ -38,7 +38,7 @@ __meta__ = {
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.505882, 0.192157, 0, 1 )
+color = Color( 0.52549, 0.160784, 0.0313726, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,10 +54,10 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="MainContainer"]
-margin_left = 139.0
-margin_top = 109.0
-margin_right = 1139.0
-margin_bottom = 609.0
+margin_left = 140.0
+margin_top = 110.0
+margin_right = 1140.0
+margin_bottom = 610.0
 rect_min_size = Vector2( 1000, 500 )
 size_flags_horizontal = 4
 size_flags_vertical = 4

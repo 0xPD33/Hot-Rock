@@ -4,6 +4,7 @@ onready var AnimPlayer = $AnimationPlayer
 
 
 func _ready():
+	# only play the fade_in animation once you first start the game
 	if not GlobalSettings.game_started:
 		AnimPlayer.play("fade_in")
 	

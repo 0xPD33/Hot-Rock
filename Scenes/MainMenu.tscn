@@ -89,8 +89,6 @@ __meta__ = {
 [node name="MainContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -0.698364
-margin_right = -0.698364
 rect_min_size = Vector2( 1000, 500 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -100,11 +98,10 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="MainContainer"]
-self_modulate = Color( 1, 1, 1, 0.705882 )
-margin_left = 139.0
-margin_top = 109.0
-margin_right = 1139.0
-margin_bottom = 609.0
+margin_left = 140.0
+margin_top = 110.0
+margin_right = 1140.0
+margin_bottom = 610.0
 rect_min_size = Vector2( 1000, 500 )
 size_flags_horizontal = 4
 size_flags_vertical = 4

@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Font/LiberationSans-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/red_panel.png" type="Texture" id=2]
 [ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/White/1x/exitLeft.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Credits.gd" type="Script" id=4]
-[ext_resource path="res://Animations/fade_out.anim" type="Animation" id=5]
-[ext_resource path="res://Animations/fade_in.anim" type="Animation" id=6]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -126,8 +124,4 @@ texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fade_in = ExtResource( 6 )
-anims/fade_out = ExtResource( 5 )
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

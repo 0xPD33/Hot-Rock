@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Font/LiberationSans-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/red_panel.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Settings.gd" type="Script" id=3]
-[ext_resource path="res://Animations/fade_out.anim" type="Animation" id=4]
-[ext_resource path="res://Animations/fade_in.anim" type="Animation" id=5]
 [ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/White/1x/cross.png" type="Texture" id=6]
 [ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/White/1x/save.png" type="Texture" id=7]
 [ext_resource path="res://Assets/GFX/KenneyGameUI/PNG/White/1x/checkmark.png" type="Texture" id=8]
@@ -25,14 +23,14 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 outline_size = 1
 outline_color = Color( 0.909804, 0.290196, 0.00392157, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 48
 outline_size = 1
 outline_color = Color( 0.909804, 0.290196, 0.00392157, 1 )
@@ -61,6 +59,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -103,16 +102,16 @@ alignment = 1
 margin_left = 340.0
 margin_right = 450.0
 margin_bottom = 19.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
 text = "Sound Volume:"
 align = 1
 valign = 1
 
 [node name="SoundSlider" type="HSlider" parent="MainContainer/PanelContainer/VBoxContainer/SoundContainer"]
-margin_left = 453.0
+margin_left = 454.0
 margin_top = 1.0
-margin_right = 653.0
+margin_right = 654.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 4
@@ -166,16 +165,12 @@ margin_left = -119.5
 margin_top = 45.0
 margin_right = 119.5
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.415686, 0.0784314, 0, 1 )
 text = "SETTINGS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fade_in = ExtResource( 5 )
-anims/fade_out = ExtResource( 4 )
 [connection signal="value_changed" from="MainContainer/PanelContainer/VBoxContainer/SoundContainer/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
 [connection signal="pressed" from="ButtonContainer/ApplyButton" to="." method="_on_ApplyButton_pressed"]
 [connection signal="pressed" from="ButtonContainer/OkayButton" to="." method="_on_OkayButton_pressed"]

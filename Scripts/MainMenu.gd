@@ -4,7 +4,10 @@ onready var AnimPlayer = $AnimationPlayer
 
 
 func _ready():
-	AnimPlayer.play("fade_in")
+	if not GlobalSettings.game_started:
+		AnimPlayer.play("fade_in")
+	
+	GlobalSettings.game_started = true
 	GlobalSettings.set_bus_volume()
 
 
@@ -15,14 +18,10 @@ func _on_PlayButton_pressed():
 
 
 func _on_SettingsButton_pressed():
-	AnimPlayer.play("fade_out")
-	yield(AnimPlayer, "animation_finished")
 	get_tree().change_scene("res://Scenes/Settings.tscn")
 
 
 func _on_CreditsButton_pressed():
-	AnimPlayer.play("fade_out")
-	yield(AnimPlayer, "animation_finished")
 	get_tree().change_scene("res://Scenes/Credits.tscn")
 
 

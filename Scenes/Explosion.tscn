@@ -27,3 +27,4 @@ frames = SubResource( 1 )
 stream = ExtResource( 10 )
 volume_db = -9.0
 pitch_scale = 0.85
+bus = "Sound"

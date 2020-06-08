@@ -5,13 +5,25 @@ onready var AnimPlayer = $AnimationPlayer
 
 func _ready():
 	AnimPlayer.play("fade_in")
+	GlobalSettings.set_bus_volume()
 
 
 func _on_PlayButton_pressed():
 	AnimPlayer.play("fade_out")
-	# waits for the fade_out animation to finish before changing to the level scene
 	yield(AnimPlayer, "animation_finished")
 	get_tree().change_scene("res://Scenes/Levels/Level1.tscn")
+
+
+func _on_SettingsButton_pressed():
+	AnimPlayer.play("fade_out")
+	yield(AnimPlayer, "animation_finished")
+	get_tree().change_scene("res://Scenes/Settings.tscn")
+
+
+func _on_CreditsButton_pressed():
+	AnimPlayer.play("fade_out")
+	yield(AnimPlayer, "animation_finished")
+	get_tree().change_scene("res://Scenes/Credits.tscn")
 
 
 func _on_QuitButton_pressed():

@@ -21,6 +21,7 @@ run/main_scene="res://Scenes/MainMenu.tscn"
 [autoload]
 
 SceneSwitcher="*res://Scripts/SceneSwitcher.gd"
+GlobalSettings="*res://Scripts/GlobalSettings.gd"
 
 [display]
 
